@@ -51,6 +51,24 @@ class Calculadora {
                 operationValue = previous / current;
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
+            case "%":
+                operationValue = (current * previous) / 100
+                this.updateScreen(operationValue, operation, current, previous);
+                break;
+            case "x²":
+                operationValue = (current * current);
+                this.updateScreen(operationValue, operation, previous, current);
+                break;
+            case "√":
+                operationValue = Math.sqrt(current);
+                this.updateScreen(operationValue, operation, previous, current);
+                console.log(operationValue, operation, current, previous)
+                break;
+            case "1/x":
+                operationValue = 1/current;
+                this.updateScreen(operationValue, operation, previous, current);
+                console.log(operationValue, operation, current, previous)
+                break;
             case "←":
                 this.deleteDigit();
                 break;
@@ -72,13 +90,13 @@ class Calculadora {
         operationValue = null,
         operation = null,
         current = null,
-        previous = null
+        previous = null,
     ) {
-
+        //Verifica se o valor é nulo, se for nulo vai adicionar a operação clicada.
         if (operationValue === null) {
             this.currentOperationText.innerText += this.currentOperation;
         } else {
-            //check if value is zero, if it is just add current value
+            //verifica se o valor é zero, se for ele vai adicionar o valor atual
             if (previous === 0) {
                 operationValue = current;
             }
@@ -108,18 +126,18 @@ class Calculadora {
     }
 
     //Deletar a tela do texto atual
-    deleteCurrentText(){
+    deleteCurrentText() {
         this.currentOperationText.innerText = '';
     }
 
     //Deletar a tela do texto atual e do passado
-    deleteAllText(){
+    deleteAllText() {
         this.currentOperationText.innerText = '';
         this.lastOperationText.innerText = '';
     }
 
     //Botão igual recebe a operação e a executa.
-    equalOperator(){
+    equalOperator() {
         const operation = lastOperationText.innerText.split(" ")[1];
         this.processOperation(operation);
     }
