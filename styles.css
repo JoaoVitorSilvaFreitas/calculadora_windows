@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --cor-branca: #ffffff;
+    --cor-quase-branca: #f3f3f3;
+    --cor-preta: #000000;
+    --cor-background: #f0ecec;
+    --cor-background-claro: #f7f4f4;
+    --cor-azul: #13a1e2;
+    --cor-azul-claro: #37aee6;
+
+    --fonte-principal: "JetBrains Mono", monospace;
+}
+
+*{
+    font-family: var(--fonte-principal);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator__container {
+    width: 500px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-background-claro);
+}
+
+h3 {
+    margin: 1rem 1rem 0 1rem;
+    font-weight: 400;
+}
+
+.screens__container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin: 10px;
+    padding: 5px;
+    gap: .4rem;
+    background-color: var(--cor-background-claro);
+    border-radius: 4px;
+}
+
+#upper__screen-container{
+    font-size: 1.4rem;
+    color: gray;
+}
+
+#lower__screen-container {
+    font-size: 2.6rem;   
+}
+
+#upper__screen-container,
+#lower__screen-container {
+    overflow-wrap: break-word;
+    min-height: 1.6em;
+}
+
+.container__buttons {
+    display: grid;
+    height: 100vh;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+}
+
+button {
+    border-radius: 8px;
+    background: var(--cor-quase-branca);
+    border: .1px solid var(--cor-background);
+    font-size: 1.0rem;
+    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+}
+.btn__numbers,
+.btn__0 {
+    background: var(--cor-branca);
+}
+
+button:hover {
+    background-color: var(--cor-background);
+}
+
+button:active {
+   transform: translateY(2px);
+}
+
+.btn__0 {
+    grid-column: span 2;
+}
+
+#btn__1x,
+#btn__x2 {
+    font-size: 1rem;
+}
+
+#btn__equal {
+    background-color: var(--cor-azul-claro);
+    border: none;
+    color: var(--cor-branca);
+}
+
+#btn__equal:hover{
+    background-color: var(--cor-azul);
+}
+
